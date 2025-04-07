@@ -13,7 +13,7 @@ header{
     color: whitesmoke;
     padding: 20px 40px;
     margin-bottom: 0px;
-}
+} 
 
 h1 {
     margin-top: 15px;
@@ -47,4 +47,31 @@ h2 {
 .item-ingridiends {
     color: gray;
     font-size: 15px;
+}
+
+.plus-btn {
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px lightgray solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.plus-btn:hover,
+.plus-btn:focus {
+    background-color: lightgreen;
+    transition-duration: 0.5s;
+    border-color: lightgreen;
+}
+
+
+.order-btn{
+    margin-left: auto;
+    padding-right: 20px;
 }

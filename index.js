@@ -11,6 +11,9 @@ function getMenuHtml(){
                 <p class="item-ingridiends">${item.ingredients.join(", ")}</p>
                 <p class="item-price">$${item.price}</p>
             </div>
+            <div class="order-btn">
+                <p class="plus-btn">+</p>
+            </div>
         </div>`
     })
 
