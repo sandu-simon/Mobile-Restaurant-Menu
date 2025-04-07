@@ -1,24 +1,50 @@
 body {
     width: 600px;
     margin: 0 auto;
+    font-family: "Boogaloo", sans-serif;
+    font-weight: lighter;
 } 
 
 header{
-    font-family: "Boogaloo", sans-serif;
     background-image: url('images/back2.jpg');
     height: 100px;
     background-size: 100% 100%;
     width: auto;
     color: whitesmoke;
     padding: 20px 40px;
+    margin-bottom: 0px;
 }
 
 h1 {
     margin-top: 15px;
-    margin-bottom: 5px; /* sau ce valoare vrei tu */
+    margin-bottom: 5px;
 }
 
 h2 {
     margin-top: 0;
     font-size: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center; 
+    border-bottom: 1px lightgray solid;
+    margin-top: 0px;
+    height: 200px;
+}
+
+.item-emoji {
+    font-size: 4rem; 
+    margin-right: 20px; 
+}
+
+.item-price,
+.item-name {
+    font-size: 25px;
+
+}
+
+.item-ingridiends {
+    color: gray;
+    font-size: 15px;
 }
