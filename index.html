@@ -21,10 +21,40 @@
                     <div id="item-list">
                         <!-- Aici vor apărea produsele comandate -->
                     </div>
-                    <p class="complete-order-btn">Complete order</p> 
+                    <p class="complete-order-btn" id="complete-order-btn">Complete order</p> 
                 </div>
             </div>
         </main>
+        <div class="form-modal" id="form-modal">
+            <form id="order-form">
+                <p id="order-form-title">Enter card details</p>
+                <button class="modal-close-btn" id="modal-close-btn">X</button>
+                <input 
+                type="text" 
+                id="clientName" 
+                name="clientName"
+                placeholder="Enter your name"
+                required
+                >
+                <input 
+                type="text" 
+                id="cardNumber" 
+                name="cardNumber"
+                placeholder="Enter card number"
+                maxlength="19"
+                required
+                >
+                <input 
+                type="password" 
+                id="cardCvv" 
+                name="cardCvv"
+                placeholder="Enter CVV"
+                maxlength="3"
+                required
+                >
+                <button type="submit">Pay</button>
+            </form>
+        </div>
 	    <script src="index.js" type="module"></script>
     </body>
 </html>

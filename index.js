@@ -33,6 +33,16 @@ document.addEventListener('click', function(e){
         removeItem(itemId)
         render(); 
     }
+    if (e.target.classList.contains('complete-order-btn')) {
+        document.getElementById('form-modal').style.display = 'flex'
+    }
+
+    if (e.target.classList.contains('modal-close-btn')) {
+        e.preventDefault();
+        document.getElementById('form-modal').style.display = 'none'
+        document.getElementById('order-form').reset();
+    }
+
 })
 
 function addItem(itemId){
@@ -83,6 +93,36 @@ function getOrderHtml(){
     return orderHtml
 }
 
+document.getElementById('cardNumber').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, ''); 
+    value = value.substring(0, 16); 
+  
+    let formatted = value.replace(/(.{4})/g, '$1 ').trim();
+    e.target.value = formatted;
+});
+
+document.getElementById('order-form').addEventListener('submit', function(e) {
+    const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+  
+    if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+        e.preventDefault();
+        alert('Card number must be exactly 16 digits.');
+    }
+
+    const cvv = document.getElementById('cardCvv').value;
+    if (cvv.length !== 3) {
+        e.preventDefault(); 
+        alert('CVV must be exactly 3 digits.');
+    }
+});
+
+document.getElementById('cardCvv').addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/\D/g, ''); 
+
+    if (e.target.value.length > 3) {
+        e.target.value = e.target.value.substring(0, 3); 
+    }
+});
 
 
 function render() {
