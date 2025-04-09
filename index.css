@@ -300,17 +300,16 @@ input[type="submit"], button{
         height: 40px;
     }
 
-    .plus-btn:active {
-        background-color: lightgreen;
-        transition-duration: 0s;
-        border-color: lightgreen;
-    }
-
     .plus-btn:hover,
     .plus-btn:focus {
         transition-duration: 0s;
         background-color: transparent;
         border-color: lightgray;
+    }
+
+    .plus-btn:active {
+        background-color: lightgreen;
+        border-color: lightgreen;
     }
 
     .order-btn {
