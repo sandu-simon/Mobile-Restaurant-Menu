@@ -35,18 +35,62 @@ document.addEventListener('click', function(e){
     }
     if (e.target.classList.contains('complete-order-btn')) {
         document.getElementById('form-modal').style.display = 'flex'
+        document.getElementById('overlay').style.display = 'block'; 
     }
 
     if (e.target.classList.contains('modal-close-btn')) {
         e.preventDefault();
         document.getElementById('form-modal').style.display = 'none'
+        document.getElementById('overlay').style.display = 'none';
         document.getElementById('order-form').reset();
+    }
+
+    if (e.target.classList.contains('submit-btn')) {
+        e.preventDefault();
+
+        const name = document.getElementById('clientName').value.trim();
+        const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+        const cvv = document.getElementById('cardCvv').value;
+    
+        // Validare nume
+        if (name === '') {
+            alert('Please enter your name.');
+            return;
+        }
+    
+        // Validare card number
+        if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+            alert('Card number must be exactly 16 digits.');
+            return;
+        }
+    
+        // Validare CVV
+        if (cvv.length !== 3 || !/^\d+$/.test(cvv)) {
+            alert('CVV must be exactly 3 digits.');
+            return;
+        }
+    
+        // Dacă totul e ok:
+        document.getElementById('order').innerHTML = `
+            <div class="thank-you" id="thank-you">
+                <p style="text-align:center;">Thank you for your order! 🍔🍕</p>
+                <p style="text-align:center;">Your food is on the way.</p>
+            </div>
+        `;
+        document.getElementById('form-modal').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('order-form').reset();
+
     }
 
 })
 
 function addItem(itemId){
     const itemObj = menuArray.find(food => food.id === itemId)
+
+    if(document.getElementById('thank-you')){
+        document.getElementById('thank-you').remove();
+    }
     
     if (itemObj) {
         if(!orderArray.includes(itemObj)){
@@ -101,20 +145,6 @@ document.getElementById('cardNumber').addEventListener('input', function(e) {
     e.target.value = formatted;
 });
 
-document.getElementById('order-form').addEventListener('submit', function(e) {
-    const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
-  
-    if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
-        e.preventDefault();
-        alert('Card number must be exactly 16 digits.');
-    }
-
-    const cvv = document.getElementById('cardCvv').value;
-    if (cvv.length !== 3) {
-        e.preventDefault(); 
-        alert('CVV must be exactly 3 digits.');
-    }
-});
 
 document.getElementById('cardCvv').addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/\D/g, ''); 
