@@ -306,6 +306,12 @@ input[type="submit"], button{
         border-color: lightgreen;
     }
 
+    .plus-btn:hover,
+    .plus-btn:focus {
+        background-color: transparent;
+        border-color: lightgray;
+    }
+
     .order-btn {
         padding-right: 10px;
     }
@@ -354,5 +360,19 @@ input[type="submit"], button{
 
     #thank-you {
         font-size: 18px;
+    }
+
+        /* Previne zoom-ul pe câmpurile de input pentru "name", "card number" și "CVV" */
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"] {
+        font-size: 16px; /* Dimensiune minimă recomandată pentru a preveni zoom-ul */
+    }
+
+    input[name="name"],
+    input[name="card-number"],
+    input[name="cvv"] {
+        font-size: 16px; /* Asigură-te că aceste câmpuri au dimensiune de font de minim 16px */
     }
 }
