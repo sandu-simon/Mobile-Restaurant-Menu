@@ -80,6 +80,18 @@ document.addEventListener('click', function(e){
         orderArray.length = 0;
     }
 
+    if (e.target.classList.contains('increase')) {
+        const itemId = parseInt(e.target.dataset.id);
+        addItem(itemId);
+        render();
+    }
+    
+    if (e.target.classList.contains('decrease')) {
+        const itemId = parseInt(e.target.dataset.id);
+        removeItem(itemId);
+        render();
+    }
+
 })
 
 function addItem(itemId){
@@ -128,9 +140,13 @@ function getOrderHtml() {
 
         orderHtml += `                      
             <div class="order-item">
-                <p>${item.name} x${quantity}</p>
-                <p class="remove-btn" data-id="${item.id}">remove</p>
-                <p class="order-item-price" id="price-${item.id}">$${totalItemPrice}</p>
+                <p>${item.name}</p>
+                <div class="order-controls">
+                <p class="qty-btn decrease" data-id="${item.id}">-</p>
+                <p class="item-qty">${quantity}</p>
+                <p class="qty-btn increase" data-id="${item.id}">+</p>
+                </div>
+                <p class="order-item-price" style="margin-left: 10px" id="price-${item.id}">$${totalItemPrice}</p>
             </div>`;
     }
 

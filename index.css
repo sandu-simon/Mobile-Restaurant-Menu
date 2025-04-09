@@ -136,7 +136,7 @@ p{
     color: rgb(126, 126, 126);
 }
 
-.order-item-price{
+.order-controls{
     margin-left: auto;
 }
 
@@ -220,4 +220,30 @@ input[type="submit"], button{
     padding: 5px;
     font-size: 25px;
     display: none;
+}
+
+.order-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.qty-btn {
+    padding: 2px 6px;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 30px;
+    width: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-qty {
+    min-width: 30px;
+    text-align: center;
 }
