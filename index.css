@@ -262,11 +262,11 @@ input[type="submit"], button{
     }
 
     h1 {
-        font-size: 22px;
+        font-size: 20px;  /* Am redus dimensiunea fontului pentru a se potrivi pe ecranul mic */
     }
 
     h2 {
-        font-size: 14px;
+        font-size: 16px;  /* Dimensiune mai mică pentru a fi vizibil pe telefon */
     }
 
     .item {
@@ -285,7 +285,7 @@ input[type="submit"], button{
     .item-name,
     .item-ingridiends,
     .item-price {
-        font-size: 18px;
+        font-size: 16px;  /* Font mai mic pentru a economisi spațiu */
     }
 
     .plus-btn {
@@ -323,7 +323,7 @@ input[type="submit"], button{
     }
 
     #order-form {
-        font-size: 20px;
+        font-size: 18px;  /* Font mai mic pentru a fi vizibil în mod eficient */
     }
 
     input {
@@ -337,6 +337,6 @@ input[type="submit"], button{
     }
 
     #thank-you {
-        font-size: 20px;
+        font-size: 18px;  /* Font mai mic pentru a fi vizibil pe telefon */
     }
 }
