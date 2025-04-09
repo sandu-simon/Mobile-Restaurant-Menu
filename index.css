@@ -262,7 +262,7 @@ input[type="submit"], button{
     }
 
     h1 {
-        font-size: 20px;  /* Am redus dimensiunea fontului pentru a se potrivi pe ecranul mic */
+        font-size: 50px;  /* Am redus dimensiunea fontului pentru a se potrivi pe ecranul mic */
     }
 
     h2 {
