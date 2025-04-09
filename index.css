@@ -249,81 +249,94 @@ input[type="submit"], button{
     text-align: center;
 }
 
-@media (max-width: 768px) {
+/* Media Queries pentru mobile */
+@media (max-width: 600px) {
     body {
-        font-size: 16px;
+        width: 100%;
         padding: 10px;
     }
 
+    header {
+        height: 80px;
+        padding: 10px 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
     .item {
-        display: flex;
         flex-direction: column;
-        gap: 10px;
-        padding: 12px;
-        border-bottom: 1px solid #ccc;
+        align-items: flex-start;
+        height: auto;
+        margin-top: 10px;
     }
 
     .item-emoji {
-        font-size: 32px;
+        font-size: 3rem;
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 
     .item-name,
+    .item-ingridiends,
     .item-price {
         font-size: 18px;
     }
 
-    .item-ingridiends {
-        font-size: 14px;
-        color: #666;
-    }
-
-    .order-btn,
-    .qty-btn,
-    .remove-btn,
-    .remove-all {
+    .plus-btn {
         font-size: 18px;
-        padding: 8px 12px;
-        border-radius: 8px;
-        cursor: pointer;
+        width: 35px;
+        height: 35px;
     }
 
-    .order-controls {
-        display: flex;
-        flex-direction: row;
-        gap: 12px;
-        align-items: center;
-        margin-top: 5px;
+    .order-btn {
+        padding-right: 10px;
+    }
+
+    #order {
+        width: 100%;
     }
 
     .order-item {
-        display: flex;
         flex-direction: column;
-        gap: 8px;
-        margin-bottom: 16px;
+        align-items: flex-start;
     }
 
-    .order-item-price {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .complete-order-btn,
     .remove-all {
-        width: 100%;
-        text-align: center;
-        font-size: 18px;
+        font-size: 14px;
+    }
+
+    .qty-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .modal-close-btn {
+        top: 3%;
+        right: 3%;
+        padding: 2px 5px;
+    }
+
+    #order-form {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 14px;
         padding: 12px;
-        margin-top: 10px;
+    }
+
+    .complete-order-btn {
+        font-size: 18px;
+        padding: 15px;
     }
 
     #thank-you {
         font-size: 20px;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    #form-modal {
-        width: 90%;
-        padding: 20px;
     }
 }
