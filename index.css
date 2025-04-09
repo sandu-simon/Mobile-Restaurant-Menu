@@ -248,3 +248,131 @@ input[type="submit"], button{
     min-width: 30px;
     text-align: center;
 }
+
+/* Media Queries pentru mobile */
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    header {
+        height: 80px;
+        padding: 10px 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: row; /* schimbat din column */
+        align-items: center; /* aliniere pe centru */
+        justify-content: space-between;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .item-emoji {
+        font-size: 2.5rem;
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+
+    .item-name,
+    .item-ingridiends,
+    .item-price {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .plus-btn {
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .plus-btn:hover,
+    .plus-btn:focus {
+        transition-duration: 0s;
+        background-color: transparent;
+        border-color: lightgray;
+    }
+
+    .plus-btn:active {
+        background-color: lightgreen;
+        border-color: lightgreen;
+    }
+
+    .order-btn {
+        padding-right: 10px;
+    }
+
+    #order {
+        width: 100%;
+    }
+
+    .order-item {
+        display: flex;
+        flex-direction: row; /* schimbat din column */
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .remove-all {
+        font-size: 14px;
+    }
+
+    .qty-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .modal-close-btn {
+        top: 3%;
+        right: 3%;
+        padding: 2px 5px;
+    }
+
+    #order-form {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .complete-order-btn {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    #thank-you {
+        font-size: 18px;
+    }
+
+        /* Previne zoom-ul pe câmpurile de input pentru "name", "card number" și "CVV" */
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"] {
+        font-size: 16px; /* Dimensiune minimă recomandată pentru a preveni zoom-ul */
+    }
+
+    input[name="name"],
+    input[name="card-number"],
+    input[name="cvv"] {
+        font-size: 16px; /* Asigură-te că aceste câmpuri au dimensiune de font de minim 16px */
+    }
+}
