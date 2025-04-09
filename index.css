@@ -248,3 +248,82 @@ input[type="submit"], button{
     min-width: 30px;
     text-align: center;
 }
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .item-emoji {
+        font-size: 32px;
+    }
+
+    .item-name,
+    .item-price {
+        font-size: 18px;
+    }
+
+    .item-ingridiends {
+        font-size: 14px;
+        color: #666;
+    }
+
+    .order-btn,
+    .qty-btn,
+    .remove-btn,
+    .remove-all {
+        font-size: 18px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .order-controls {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        margin-top: 5px;
+    }
+
+    .order-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .order-item-price {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .complete-order-btn,
+    .remove-all {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        padding: 12px;
+        margin-top: 10px;
+    }
+
+    #thank-you {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #form-modal {
+        width: 90%;
+        padding: 20px;
+    }
+}
