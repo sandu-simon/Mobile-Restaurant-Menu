@@ -71,16 +71,12 @@ document.addEventListener('click', function(e){
         }
     
         // Dacă totul e ok:
-        document.getElementById('order').innerHTML = `
-            <div class="thank-you" id="thank-you">
-                <p style="text-align:center;">Thank you for your order! 🍔🍕</p>
-                <p style="text-align:center;">Your food is on the way.</p>
-            </div>
-        `;
+        document.getElementById('thank-you').style.display = 'block'
+        document.getElementById('order').style.display = 'none'
         document.getElementById('form-modal').style.display = 'none';
         document.getElementById('overlay').style.display = 'none';
         document.getElementById('order-form').reset();
-
+        orderArray.length = 0;
     }
 
 })
@@ -89,7 +85,7 @@ function addItem(itemId){
     const itemObj = menuArray.find(food => food.id === itemId)
 
     if(document.getElementById('thank-you')){
-        document.getElementById('thank-you').remove();
+        document.getElementById('thank-you').style.display = 'none'
     }
     
     if (itemObj) {

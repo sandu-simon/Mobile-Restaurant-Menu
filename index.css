@@ -212,11 +212,12 @@ input[type="submit"], button{
     display: none; /* Inițial ascuns */
 }
 
-.thank-you{
+#thank-you{
     background-color: rgb(222, 255, 222);
     color: rgb(92, 213, 92);
     border-radius: 5px;
     margin-top: 30px;
     padding: 5px;
-
+    font-size: 25px;
+    display: none;
 }
