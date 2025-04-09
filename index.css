@@ -302,15 +302,10 @@ input[type="submit"], button{
 
     .plus-btn:active {
         background-color: lightgreen;
-        transition-duration: 0.5s;
+        transition-duration: 0s;
         border-color: lightgreen;
     }
 
-    .plus-btn:hover,
-    .plus-btn:focus {
-        background-color: transparent;
-        border-color: lightgray;
-    }
 
     .order-btn {
         padding-right: 10px;
