@@ -1,6 +1,7 @@
 import  { menuArray } from './data.js'
 
 const orderArray=[]
+const orderSequence = [];
 
 function getMenuHtml(){
     let menuHtml = ''
@@ -82,55 +83,66 @@ document.addEventListener('click', function(e){
 })
 
 function addItem(itemId){
-    const itemObj = menuArray.find(food => food.id === itemId)
+    const itemObj = menuArray.find(food => food.id === itemId);
 
-    if(document.getElementById('thank-you')){
-        document.getElementById('thank-you').style.display = 'none'
-    }
-    
     if (itemObj) {
-        if(!orderArray.includes(itemObj)){
-            orderArray.push(itemObj)
-            document.getElementById('order').style.display = "block";
+        orderArray.push(itemObj);
 
-        } 
+        if (!orderSequence.includes(itemId)) {
+            orderSequence.push(itemId); // salvăm ordinea
+        }
+
+        document.getElementById('order').style.display = "block";
     }
 }
 
-function removeItem(itemId){
-    const index = orderArray.findIndex(item => item.id === itemId)
+function removeItem(itemId) {
+    const index = orderArray.findIndex(item => item.id === itemId);
 
     if (index !== -1) {
-        orderArray.splice(index, 1)
-        if(!orderArray[0]){
+        orderArray.splice(index, 1);
+
+        const stillExists = orderArray.some(item => item.id === itemId);
+
+        if (!stillExists) {
+            const seqIndex = orderSequence.indexOf(itemId);
+            if (seqIndex !== -1) {
+                orderSequence.splice(seqIndex, 1); // eliminăm din secvență
+            }
+        }
+
+        if (orderArray.length === 0) {
             document.getElementById('order').style.display = "none";
         }
     }
 }
 
-function getOrderHtml(){
-    let orderHtml = ''
 
-    orderArray.forEach(function(item){
+function getOrderHtml() {
+    let orderHtml = '';
+
+    for (const id of orderSequence) {
+        const item = menuArray.find(product => product.id === id);
+        const quantity = orderArray.filter(food => food.id === id).length;
+        const totalItemPrice = item.price * quantity;
+
         orderHtml += `                      
             <div class="order-item">
-                <p>${item.name}</p>
+                <p>${item.name} x${quantity}</p>
                 <p class="remove-btn" data-id="${item.id}">remove</p>
-                <p class="order-item-price">$${item.price}</p>
-            </div>`
-    })
+                <p class="order-item-price" id="price-${item.id}">$${totalItemPrice}</p>
+            </div>`;
+    }
+
+    const totalPrice = orderArray.reduce((sum, item) => sum + item.price, 0);
 
     orderHtml += `                    
         <div class="order-item total-price">
             <p>Total price</p>
-            <p class="order-item-price">$${
-                orderArray.reduce(function(total,next){
-                return total+next.price
-            },0)}</p>
-        </div>`
-    
+            <p class="order-item-price">$${totalPrice}</p>
+        </div>`;
 
-    return orderHtml
+    return orderHtml;
 }
 
 document.getElementById('cardNumber').addEventListener('input', function(e) {
