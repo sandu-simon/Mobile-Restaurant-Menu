@@ -78,6 +78,7 @@ document.addEventListener('click', function(e){
         document.getElementById('overlay').style.display = 'none';
         document.getElementById('order-form').reset();
         orderArray.length = 0;
+        orderSequence.length = 0;
     }
 
     if (e.target.classList.contains('increase')) {
@@ -92,10 +93,20 @@ document.addEventListener('click', function(e){
         render();
     }
 
+    if (e.target.classList.contains('remove-all')) {
+        const itemId = parseInt(e.target.dataset.id);
+        removeAllOfItem(itemId);
+        render();
+    }
+
 })
 
 function addItem(itemId){
     const itemObj = menuArray.find(food => food.id === itemId);
+
+    if(document.getElementById('thank-you')){
+        document.getElementById('thank-you').style.display = 'none'
+    }
 
     if (itemObj) {
         orderArray.push(itemObj);
@@ -129,6 +140,23 @@ function removeItem(itemId) {
     }
 }
 
+function removeAllOfItem(itemId) {
+    for (let i = orderArray.length - 1; i >= 0; i--) {
+        if (orderArray[i].id === itemId) {
+            orderArray.splice(i, 1);
+        }
+    }
+
+    const seqIndex = orderSequence.indexOf(itemId);
+    if (seqIndex !== -1) {
+        orderSequence.splice(seqIndex, 1);
+    }
+
+    if (orderArray.length === 0) {
+        document.getElementById('order').style.display = "none";
+    }
+}
+
 
 function getOrderHtml() {
     let orderHtml = '';
@@ -141,6 +169,7 @@ function getOrderHtml() {
         orderHtml += `                      
             <div class="order-item">
                 <p>${item.name}</p>
+                <p class="remove-all" data-id="${item.id}">remove</p>
                 <div class="order-controls">
                 <p class="qty-btn decrease" data-id="${item.id}">-</p>
                 <p class="item-qty">${quantity}</p>
@@ -155,7 +184,7 @@ function getOrderHtml() {
     orderHtml += `                    
         <div class="order-item total-price">
             <p>Total price</p>
-            <p class="order-item-price">$${totalPrice}</p>
+            <p id="total-item-price">$${totalPrice}</p>
         </div>`;
 
     return orderHtml;

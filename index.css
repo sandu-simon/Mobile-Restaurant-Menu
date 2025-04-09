@@ -122,7 +122,7 @@ p{
     margin-top: 20px;
 }
 
-.remove-btn {
+.remove-all {
     margin-top: 15px;
     margin-left: 20px;
     color: rgb(173, 173, 173);
@@ -131,12 +131,13 @@ p{
     cursor: pointer;
 }
 
-.remove-btn:focus,
-.remove-btn:hover {
+.remove-all:focus,
+.remove-all:hover {
     color: rgb(126, 126, 126);
 }
 
-.order-controls{
+.order-controls,
+#total-item-price{
     margin-left: auto;
 }
 
