@@ -253,7 +253,6 @@ input[type="submit"], button{
 @media (max-width: 600px) {
     body {
         width: 100%;
-        padding: 10px;
     }
 
     header {
@@ -276,6 +275,7 @@ input[type="submit"], button{
         justify-content: space-between;
         height: auto;
         margin-top: 10px;
+        padding: 10px;
     }
 
     .item-emoji {
