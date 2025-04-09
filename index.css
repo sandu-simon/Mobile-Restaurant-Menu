@@ -306,6 +306,12 @@ input[type="submit"], button{
         border-color: lightgreen;
     }
 
+    .plus-btn:hover,
+    .plus-btn:focus {
+        transition-duration: 0s;
+        background-color: transparent;
+        border-color: lightgray;
+    }
 
     .order-btn {
         padding-right: 10px;
